@@ -4,7 +4,7 @@
 
 ### Overview
 
-The algorithm subscribes to real-time order book snapshots and trade events and submits/resubmits/cancels an agressive limit order at the best price. It monitor fills until the target notional has been reached and exits once filled.
+The algorithm subscribes to real-time order book snapshots and trade events and submits/resubmits/cancels a make-only limit order at the best price. It monitor fills until the target notional has been reached and exits once filled.
 
 
 **Features**: 
@@ -136,5 +136,3 @@ for more in-depth analysis, timestamped matched trades and mid prices are also a
 [(63317.2, 0.014, 1727171378370), (63317.2, 0.223, 1727171407827)]
 >>>
 ```
-
-# bestprice_limit_order_rust_python_binance
