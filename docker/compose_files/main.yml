@@ -1,0 +1,23 @@
+services:
+  django:
+    container_name: django-rust_trader_test-main
+    image: python:3.9
+    build:
+      context: ../../
+      dockerfile: ./docker/Dockerfiles/django.Dockerfile
+    depends_on:
+      - timescaledb
+    tty: true
+    env_file:
+      - ../envs/.env
+      - ../envs/.enums
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16 #we're not using their functionality yet, so this can actually be a standard postgres image
+    restart: always
+    env_file:
+      - ../envs/.env
+
+networks:
+  default:
+    name: rust_trader_test

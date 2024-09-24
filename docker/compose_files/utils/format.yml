@@ -1,0 +1,24 @@
+services:
+  black-formatter:
+    build:
+      context: ../../
+      dockerfile: ./Dockerfiles/black.Dockerfile
+    volumes:
+      - ../../../:/code
+    command: sh -c "black --line-length=72 /code"
+
+  prettier:
+    build:
+      context: ../../
+      dockerfile: ./Dockerfiles/prettier.Dockerfile
+    volumes:
+      - ../../../:/code
+    command: sh -c "prettier -w ."
+
+  rustfmt:
+    build:
+      context: ../../
+      dockerfile: ./Dockerfiles/rustfmt.Dockerfile
+    volumes:
+      - ../../../cli:/code
+    command: sh -c "find . -name \"Cargo.toml\" -execdir cargo fmt ';'"

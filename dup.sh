@@ -1,0 +1,1 @@
+docker compose -f $1 build && docker compose -f $1  up -d && docker compose -f $1 logs --tail 50 -ft
