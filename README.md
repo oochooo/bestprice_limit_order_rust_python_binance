@@ -4,7 +4,7 @@
 
 ### Overview
 
-The algorithm subscribes to real-time order book snapshots and trade events, then submits/resubmits/cancels a make-only limit order at the best price. It monitor fills until the target notional has been reached and exits once filled.
+The algorithm subscribes to real-time order book snapshots and trade events, then submits/resubmits/cancels a make-only limit order at the best price. It monitors fills until the target notional has been reached. Returns a list of `Order` once all symbols are filled.
 
 
 **Features**: 
@@ -15,7 +15,7 @@ The algorithm subscribes to real-time order book snapshots and trade events, the
 
 **Notes**: 
 - The code has only been run on a `ap-northeast-1` machine.
-- The BBO is evaluated against the resting order (possibly canceled/resubmitted) at every tick. If you're doing multiple symbols simultaneously, rate limiting might be an issue.
+- The BBO is evaluated against the resting order (and possibly canceled/resubmitted) at every tick. If you're doing multiple symbols simultaneously, rate limiting might be an issue.
 - Edge cases are not handled. Use at your own risk.
 
 ![Alt text](screenshot.png?raw=true "Screenshot")
